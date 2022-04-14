@@ -1,7 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using ToDo.Contracts.Interfaces;
+﻿using ToDo.Contracts.Interfaces;
 
-namespace ToDo.Contracts
+namespace ToDo.Common
 {
     public class PagedList<T> : List<T>, IPagedList<T>
         where T : class
