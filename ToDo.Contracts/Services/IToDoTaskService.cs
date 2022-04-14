@@ -1,4 +1,5 @@
 ﻿using ToDo.Contracts.DataTransferObjects;
+using ToDo.Contracts.Interfaces;
 
 namespace ToDo.Contracts.Services
 {
@@ -12,6 +13,6 @@ namespace ToDo.Contracts.Services
 
         Task<ToDoTaskDto> GetToDoTaskByIdAsync(int toDoTaskId);
 
-        PagedList<ToDoTaskDto> GetAllAsync(int pageNumber, int pageCount);
+        IPagedList<ToDoTaskDto> GetAllAsync(int pageNumber, int pageCount);
     }
 }
