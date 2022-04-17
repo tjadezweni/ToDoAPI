@@ -1,4 +1,7 @@
-﻿namespace ToDo.Infrastructure.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ToDo.Infrastructure.Entities
 {
     public sealed class ToDoTask
     {

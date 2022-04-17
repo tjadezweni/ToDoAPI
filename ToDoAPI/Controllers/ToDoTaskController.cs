@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ToDo.Contracts.DataTransferObjects;
 using ToDo.Contracts.Services;
+using ToDoAPI.ActionFilters;
 
 namespace ToDoAPI.Controllers
 {
@@ -31,6 +32,7 @@ namespace ToDoAPI.Controllers
         }
 
         [HttpPost(Name = "CreateToDoTask")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateToDoTask([FromBody] CreateToDoTaskDto dto)
         {
             var toDoTask = await _toDoTaskService.CreateToDoTaskAsync(dto);
@@ -38,6 +40,7 @@ namespace ToDoAPI.Controllers
         }
 
         [HttpPut("{toDoTaskId:int}", Name = "UpdateToDoTaskById")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateToDoTask(int toDoTaskId, [FromBody] UpdateToDoTaskDto dto)
         {
             var toDoTask = await _toDoTaskService.UpdateToDoTaskDetailsAsync(toDoTaskId, dto);
