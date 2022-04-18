@@ -4,7 +4,7 @@ using ToDo.Infrastructure.Entities;
 
 namespace ToDo.Mappers
 {
-    internal sealed class ToDoTaskMapperProfile : Profile
+    public sealed class ToDoTaskMapperProfile : Profile
     {
         public ToDoTaskMapperProfile()
         {

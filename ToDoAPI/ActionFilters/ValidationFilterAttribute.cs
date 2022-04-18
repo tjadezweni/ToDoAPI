@@ -21,7 +21,6 @@ namespace ToDoAPI.ActionFilters
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            throw new NotImplementedException();
         }
     }
 }

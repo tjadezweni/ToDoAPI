@@ -27,7 +27,6 @@ namespace ToDoAPI.Middleware
                             default:
                                 break;
                         }
-                        context.Response.ContentType = "application/json";
                         context.Response.StatusCode = statusCode;
                         var responseText = new ErrorDetails()
                         {

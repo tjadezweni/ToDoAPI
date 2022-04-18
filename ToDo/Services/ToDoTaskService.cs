@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using ToDo.Common;
+using Microsoft.EntityFrameworkCore;
 using ToDo.Contracts;
+using ToDo.Contracts.Common;
 using ToDo.Contracts.DataTransferObjects;
 using ToDo.Contracts.Exceptions;
-using ToDo.Contracts.Interfaces;
 using ToDo.Contracts.Services;
 using ToDo.Infrastructure;
 using ToDo.Infrastructure.Entities;
@@ -41,11 +41,11 @@ namespace ToDo.Services
             await _db.SaveChangesAsync();
         }
 
-        public IPagedList<ToDoTaskDto> GetAllAsync(int pageNumber, int pageCount)
+        public async Task<PagedList<ToDoTaskDto>> GetAllAsync(int pageNumber, int pageCount)
         {
             var toDoTaskList = _db.ToDoTasks.ToList();
             var toDoTaskDtoList = _mapper.Map<IEnumerable<ToDoTaskDto>>(toDoTaskList);
-            return new PagedList<ToDoTaskDto>(toDoTaskDtoList, pageNumber, pageCount);
+            return PagedList<ToDoTaskDto>.CreatePagedList(toDoTaskDtoList, pageNumber, pageCount);
         }
 
         public async Task<ToDoTaskDto> GetToDoTaskByIdAsync(int toDoTaskId)

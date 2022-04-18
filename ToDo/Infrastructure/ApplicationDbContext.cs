@@ -4,7 +4,7 @@ using ToDo.Infrastructure.Entities;
 
 namespace ToDo.Infrastructure
 {
-    public sealed class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public DbSet<ToDoTask> ToDoTasks { get; set; } = null!;
 

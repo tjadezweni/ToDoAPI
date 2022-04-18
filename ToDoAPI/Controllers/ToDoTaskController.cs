@@ -20,7 +20,7 @@ namespace ToDoAPI.Controllers
         public async Task<IActionResult> GetAllToDoTasks(
             [FromQuery] int pageNumber = 1, [FromQuery] int pageCount = 20)
         {
-            var toDoTaskList = _toDoTaskService.GetAllAsync(pageNumber, pageCount);
+            var toDoTaskList = await _toDoTaskService.GetAllAsync(pageNumber, pageCount);
             return Ok(toDoTaskList);
         }
 
