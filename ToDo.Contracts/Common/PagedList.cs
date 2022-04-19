@@ -7,7 +7,7 @@
 
         public IEnumerable<T> Items { get; private set; }
 
-        private PagedList(IEnumerable<T> source, int pageNumber, int pageCount)
+        private PagedList(IEnumerable<T> source, int pageNumber = 1, int pageCount = 20)
         {
             Metadata = new PageMetadata
             {
