@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.RegisterToDoDbContext(builder.Configuration);
 builder.Services.RegisterAutoMapper();
 builder.Services.RegisterToDoServices();
+builder.Services.RegisterRedisCache(builder.Configuration);
 
 builder.Services.AddScoped<ValidationFilterAttribute>();
 

@@ -2,6 +2,7 @@
 using ToDo.Contracts.DataTransferObjects;
 using ToDo.Contracts.Services;
 using ToDoAPI.ActionFilters;
+using ToDoAPI.Attributes;
 
 namespace ToDoAPI.Controllers
 {
@@ -17,6 +18,7 @@ namespace ToDoAPI.Controllers
         }
 
         [HttpGet(Name = "GetAllToDoTasks")]
+        [Cached(600, "todotasks")]
         public async Task<IActionResult> GetAllToDoTasks(
             [FromQuery] int pageNumber = 1, [FromQuery] int pageCount = 20)
         {
